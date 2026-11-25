@@ -1,7 +1,0 @@
-# Netlify / Cloudflare Pages: frames and media never change under the same name.
-/frames/*
-  Cache-Control: public, max-age=31536000, immutable
-/media/*
-  Cache-Control: public, max-age=31536000, immutable
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
