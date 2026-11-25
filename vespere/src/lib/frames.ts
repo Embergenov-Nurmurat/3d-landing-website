@@ -36,9 +36,10 @@ function loadOne(src: string): Promise<HTMLImageElement> {
     const img = new Image();
     img.decoding = 'async';
     img.src = src;
-    const done = () => resolve(img);
+    const fail = () => reject(new Error(`Failed to load ${src}`));
+    const done = () => (img.naturalWidth > 0 ? resolve(img) : fail());
+    img.onerror = fail;
     img.decode().then(done, () => (img.complete ? done() : (img.onload = done)));
-    img.onerror = () => reject(new Error(`Failed to load ${src}`));
   });
 }
 

@@ -54,8 +54,28 @@ html.lenis body {
   overflow: hidden;
 }
 
+/* Pinned film. The section height uses `lvh` (the largest viewport) so it never changes when the
+   phone's address bar hides; the sticky layer uses `dvh` so it always fills the visible screen —
+   with `svh` a black strip appeared at the bottom once the toolbar collapsed. */
+.film-section {
+  height: 1900vh;
+  height: 1900lvh;
+}
+.film-pin {
+  height: 100vh;
+  height: 100dvh;
+}
+@media (max-width: 767px) {
+  .film-section {
+    height: 1600vh;
+    height: 1600lvh;
+  }
+}
+
 html {
   scrollbar-gutter: stable;
+  overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;
   background: var(--color-ink);
   color: var(--color-bone);
   -webkit-font-smoothing: antialiased;
@@ -63,6 +83,7 @@ html {
   text-rendering: optimizeLegibility;
 }
 body {
+  min-height: 100%;
   background: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: clip;

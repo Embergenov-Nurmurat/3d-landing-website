@@ -18,7 +18,10 @@ export const easeInQuad = (t: number) => t * t;
  */
 export function pinProgress(el: HTMLElement): {p: number; rect: DOMRect; vh: number} {
   const rect = el.getBoundingClientRect();
-  const vh = window.innerHeight;
+  // Use the pinned child's real height, not window.innerHeight: on phones the
+  // latter changes as the browser toolbar hides/shows, which made progress jump.
+  const pinned = el.firstElementChild as HTMLElement | null;
+  const vh = pinned?.offsetHeight || window.innerHeight;
   const span = Math.max(1, rect.height - vh);
   return {p: clamp(-rect.top / span), rect, vh};
 }

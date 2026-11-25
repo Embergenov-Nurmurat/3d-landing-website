@@ -268,8 +268,8 @@ export function Stage({onProgress}: Props) {
   }, [onProgress]);
 
   return (
-    <section ref={root} id="film" aria-label="Rain Hours — film" className="relative h-[1900svh] max-md:h-[1600svh]">
-      <div className="sticky top-0 h-svh overflow-hidden bg-ink">
+    <section ref={root} id="film" aria-label="Rain Hours — film" className="film-section relative">
+      <div className="film-pin sticky top-0 overflow-hidden bg-ink">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden />
         {/* Lens falloff + a floor of shadow for the type */}
         <div

@@ -27,7 +27,7 @@ export function ProductCard({product, side, ref}: Props) {
       aria-label={`${product.name.join(' ')} — add to bag`}
       style={{visibility: 'hidden'}}
       className={`absolute z-30 flex flex-col bg-bone text-ink will-change-transform
-        sheet:inset-x-0 sheet:bottom-0 sheet:h-[68svh] sheet:rounded-t-[26px] sheet:px-5 sheet:pt-5 sheet:pb-5
+        sheet:inset-x-0 sheet:bottom-0 sheet:h-[68%] sheet:rounded-t-[26px] sheet:px-5 sheet:pt-5 sheet:pb-[max(20px,env(safe-area-inset-bottom))]
         desk:inset-y-0 desk:w-[clamp(420px,41vw,640px)] desk:px-[clamp(28px,3vw,52px)] desk:pt-24 desk:pb-[clamp(20px,3vh,36px)]
         ${side === 'left' ? 'desk:left-0' : 'desk:right-0'}`}
     >
